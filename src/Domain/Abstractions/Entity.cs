@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Abstractions;
+namespace Projectify.Domain.Abstractions;
 
 public abstract class Entity
 {

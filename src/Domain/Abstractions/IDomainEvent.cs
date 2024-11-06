@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace Domain.Abstractions;
+namespace Projectify.Domain.Abstractions;
 
 public interface IDomainEvent : INotification
 {

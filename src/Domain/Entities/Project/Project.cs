@@ -1,8 +1,8 @@
-using Domain.Abstractions;
-using Domain.Events.Project;
-using Domain.Exceptions;
+using Projectify.Domain.Abstractions;
+using Projectify.Domain.Events.Project;
+using Projectify.Domain.Exceptions;
 
-namespace Domain.Entities.Project;
+namespace Projectify.Domain.Entities.Project;
 
 public class Project(
     string name,
@@ -29,7 +29,19 @@ public class Project(
         }
 
         Status = ProjectStatus.InProgress;
-        StartDate = DateTime.Now;
+        StartDate = DateTime.UtcNow;
         AddDomainEvent(new ProjectStartedEvent(Id));
+    }
+
+    public void Complete()
+    {
+        if (Status is not (ProjectStatus.InProgress or ProjectStatus.Overdue))
+        {
+            throw new InvalidProjectStatusException($"Unable to complete the project with status: {Status}");
+        }
+        
+        Status = ProjectStatus.Completed;
+        EndDate = DateTime.UtcNow;
+        AddDomainEvent(new ProjectCompletedEvent(Id));
     }
 }

@@ -1,4 +1,4 @@
-namespace Domain.Entities.Project;
+namespace Projectify.Domain.Entities.Project;
 
 public enum ProjectStatus
 {
