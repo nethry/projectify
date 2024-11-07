@@ -1,8 +1,8 @@
 ﻿using System;
 using Projectify.Domain.Abstractions;
-namespace Projectify.Domain.Entities.Card;
+namespace Projectify.Domain.Entities.WorkItem;
 
-public class Card(
+public class WorkItem(
 	string name,
 	DateTime startDate,
 	DateTime deadline,
