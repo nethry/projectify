@@ -1,4 +1,4 @@
-namespace Domain.Abstractions;
+namespace Projectify.Domain.Abstractions;
 
 public abstract record DomainEvent : IDomainEvent
 {
