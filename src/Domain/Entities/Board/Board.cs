@@ -1,13 +1,11 @@
 ﻿using System;
-using Projectify.Domain.Entities.Card;
+using Projectify.Domain.Entities.Column;
 
 namespace Projectify.Domain.Entities.Board;
 
-public class Board(
-    string name
-    )
+public class Board(string name)
 {
     string Name { get; private set; } = name;
 
-    list<Card> cards { get; private set; }
+    List<Column> Columns { get; private set; }
 }
