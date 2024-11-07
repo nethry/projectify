@@ -15,5 +15,5 @@ public class WorkItem(
 
 	DateTime StartDate { get; private set; } = DateTime.UtcNow;
 	
-	DateTime deadline { get; private set; }
+	DateTime Deadline { get; private set; }
 }
