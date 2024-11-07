@@ -42,4 +42,18 @@ public class ProjectTests
         FluentActions.Invoking(() => project.Complete())
             .Should().Throw<InvalidProjectStatusException>();
     }
+
+    [Fact]
+    public void Should_Complete_Project_With_Correct_Status()
+    {
+        var project = new Project(
+            "TestProject",
+            "Description",
+            DateTime.Now.Date.AddMonths(6));
+
+        project.Start();
+        project.Complete();
+        
+        project.Status.Should().Be(ProjectStatus.Completed);
+    }
 }
