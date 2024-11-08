@@ -5,7 +5,7 @@ using Projectify.Domain.Abstractions;
 
 public class Column(string name) : Entity
 {
-    string Name { get; private set; } = name;
+    public string Name { get; private set; } = name;
 
-    List<WorkItem> WorkItems { get; private set; }
+    public List<WorkItem.WorkItem>? WorkItems { get; private set; }
 }
