@@ -6,7 +6,7 @@ namespace Projectify.Domain.Entities.Board;
 
 public class Board(string name) : Entity
 {
-    string Name { get; private set; } = name;
+    public string Name { get; private set; } = name;
 
-    List<Column> Columns { get; private set; }
+    public List<Column.Column>? Columns { get; private set; }
 }
