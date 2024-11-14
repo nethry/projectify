@@ -1,8 +1,9 @@
 using MediatR;
 using Projectify.Application.Abstractions.Persistence.Repositories;
 using Projectify.Application.Common.Exceptions;
-using Projectify.Application.Projects.Commands.Start;
-namespace Projectify.Application.Projects.Commands;
+
+
+namespace Projectify.Application.Projects.Commands.Start;
 
 internal sealed class StartProjectCommandHandler(IProjectRepository repository) 
     : IRequestHandler<StartProjectCommand, Unit>
