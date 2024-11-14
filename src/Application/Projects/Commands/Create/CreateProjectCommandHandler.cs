@@ -4,7 +4,8 @@ using Projectify.Domain.Entities.Project;
 
 namespace Projectify.Application.Projects.Commands.Create;
 
-internal sealed class CreateProjectCommandHandler(IProjectRepository repository)
+internal sealed class CreateProjectCommandHandler(
+    IProjectRepository repository)
     : IRequestHandler<CreateProjectCommand, NewProjectResultModel>
 {
     public async Task<NewProjectResultModel> Handle(
