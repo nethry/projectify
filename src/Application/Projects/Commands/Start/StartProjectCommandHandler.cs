@@ -2,8 +2,6 @@ using MediatR;
 using Projectify.Application.Abstractions.Persistence.Repositories;
 using Projectify.Application.Common.Exceptions;
 using Projectify.Application.Projects.Commands.Start;
-using Projectify.Domain.Entities.Project;
-
 namespace Projectify.Application.Projects.Commands;
 
 internal sealed class StartProjectCommandHandler(IProjectRepository repository) 
@@ -18,7 +16,8 @@ internal sealed class StartProjectCommandHandler(IProjectRepository repository)
         {
             throw new NotFoundException();
         }
-        project.Start();
+
+        await repository.UpdateAsync(project);
         
         return Unit.Value;
     }
