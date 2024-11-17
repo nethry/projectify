@@ -1,6 +1,7 @@
 using MediatR;
 using Projectify.Application.Abstractions.Persistence.Repositories;
 using Projectify.Application.Common.Exceptions;
+
 namespace Projectify.Application.Projects.Commands.Complete;
 
 internal sealed class CompleteProjectCommandHandler(IProjectRepository repository) 
@@ -16,8 +17,7 @@ internal sealed class CompleteProjectCommandHandler(IProjectRepository repositor
             throw new NotFoundException();
         }
 
-        await repository.UpdateAsync(project);
-        
+        project.Complete();
         return Unit.Value;
     }
 }
