@@ -17,8 +17,7 @@ internal sealed class RemoveProjectCommandHandler(IProjectRepository repository)
         {
             throw new NotFoundException();
         }
-        var projectId = project.Id;
-        await repository.RemoveAsync(projectId);
+        await repository.RemoveAsync(project.Id);
 
         return Unit.Value;
     }
