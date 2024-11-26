@@ -18,6 +18,7 @@ internal sealed class CompleteProjectCommandHandler(IProjectRepository repositor
         }
 
         project.Complete();
+        await repository.UpdateAsync(project);
         return Unit.Value;
     }
 }

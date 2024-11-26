@@ -10,12 +10,12 @@ internal sealed class GetCompleteProjectsListQueryHandler(IProjectRepository rep
         GetCompleteProjectsListQuery query,
         CancellationToken cancellationToken)
     {
-        var UnfilteredProjects = await repository.GetAllAsync();
-
-        return (IEnumerable<CompleteProjectListModel>)
-            (from project in UnfilteredProjects
-            where project.Status == ProjectStatus.Completed 
-            select (project.Id, project.Name));
-             
+        var unfilteredProjects = await repository.GetAllAsync();
+        
+        var FilteredProjects = unfilteredProjects
+            .Where(project => project.Status == ProjectStatus.Completed) 
+            .Select(project => new CompleteProjectListModel(project.Id, project.Name, project.Status));
+        
+        return FilteredProjects;
     }
 }
